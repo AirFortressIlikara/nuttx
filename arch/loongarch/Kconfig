@@ -1,0 +1,37 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+if ARCH_LOONGARCH
+choice
+	prompt "LOONGARCH chip selection"
+	default ARCH_CHIP_LS2K0300
+
+config ARCH_CHIP_LS2K0300
+	bool "LS2K0300"
+	select ARCH_LOONGARCH64
+	---help---
+		Loongson LS2K0300 (LOONGARCH64)
+
+endchoice
+
+config ARCH_LOONGARCH32
+	bool
+	default n
+
+config ARCH_LOONGARCH64
+	bool
+	default n
+
+config ARCH_FAMILY
+	string
+	default "loongarch64"	if ARCH_LOONGARCH64
+	default "loongarch32"	if ARCH_LOONGARCH32
+
+config ARCH_CHIP
+	string
+
+source "arch/loongarch/src/common/Kconfig"
+
+endif

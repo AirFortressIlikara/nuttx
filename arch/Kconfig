@@ -58,6 +58,11 @@ config ARCH_HC
 	---help---
 		Freescale HC architectures (M9S12)
 
+config ARCH_LOONGARCH
+	bool "LOONGARCH"
+	---help---
+		LOONGARCH (LOONGARCH64)
+
 config ARCH_MIPS
 	bool "MIPS"
 	select ARCH_HAVE_INTERRUPTSTACK
